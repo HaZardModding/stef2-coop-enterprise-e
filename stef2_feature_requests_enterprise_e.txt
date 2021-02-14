@@ -1,0 +1,15 @@
+List of Requested features and fixes for Map: rpg_enterprise_e
+
+Note: Tasks of high priority or demand are listed in bold
+
+•	Replicators can replicate objects
+•	Warp core Ejection functionality (Button already exists in engineering)
+•	Security lock down button (Force Fields) Possibly on certain decks blocking the turbo lifts (exits)
+•	The health Terminals regenerate their health so they can be used time after a time again, or they shall be removed
+•	Access to the inner shuttle on the shuttle bay
+•	Holographic Doctor (EMH) for the sickbay or an option for a human player to play the role of the doctor (using co-op medic role functionality)
+•	At the transporter room, a deck to deck teleportation option when a player stands on the transporter pad (menu perhaps), or perhaps this could tie in with the player’s unique ID in order to transport individual players from anywhere in the ship to a specified deck.
+•	At the armoury, a transport inhibitor device available to pick up, to prevent transportation for a particular person (also could be tied in with a players unique ID).
+•	Transporter room Force Field disables once the server is empty
+•	Yellow alert feature
+•	Warp engines sound button at helm console and various other features (sounds, text) when console buttons are pressed (see included GIF image)
