@@ -1,0 +1,84 @@
+//------------------------------------------------------------------------------
+// COOP Enterprise E - script created 2021.01.10
+// Geometry:					Gsio/Ritual Entertainment
+// Geometry optimisatzions:		Chrissstrahl
+// Scripts:						Chrissstrahl	
+//------------------------------------------------------------------------------
+
+//NOTES
+/**/
+
+//------------------------------------------------------------------------------
+// INCLUDES - So these scripts can be used on with this level
+//------------------------------------------------------------------------------
+#include "maps/coop_ente/declarations.script"	//so all other scripts can use the functions listed in this file
+#include "maps/global_scripts/global_math.scr"	//needed for some calulations
+#include "maps/coop_ente/multioptions.scr"		//The Multioptions script - include bevore others
+#include "maps/coop_ente/turbolift.scr"			//The turbolift script - does the turbolift magic
+
+
+void main()
+//------------------------------------------------------------------------------
+// This function is started by the game after mapload
+//------------------------------------------------------------------------------
+{
+	//start the setup of the map
+	thread setupMap();
+	
+	
+	// Entity fade dist
+	$world.entity_fade_dist( 16000 );
+	
+	//enable sky(skybox)
+	$sky.rendereffects( "+skyorigin" );
+	
+	//clear/set viewmodes avialabe for Tricorder
+	$world.clearAvailableViewModes();
+	
+	//make the model of the enterprise e exterior like it would have light shining on it
+	$shuttleBay_enterpriseHull0.rendereffects("+minlight");
+	$shuttleBay_enterpriseHull1.rendereffects("+minlight");
+	$shuttleBay_enterpriseHull2.rendereffects("+minlight");
+	
+	//make the model of the enterprise a exterior like it would have light shining on it
+	$sky_starShip_constitution.rendereffects("+minlight");
+	
+	//spawn a script_origin so that the enterprise a can be constrolled by script
+	//match origin and angle from the model inside the map
+	entity eOrigin;
+	eOrigin = spawn("script_origin","origin",""+$sky_starShip_constitution.getOrigin());
+	wait(0.05);//wait for it to spawn
+	eOrigin.angle(315);
+	$sky_starShip_constitution.bind(eOrigin);//bind model to script_orgin
+	
+	wait(0.5);
+	$player.origin($deck8Turbolift0_origin.getOrigin());
+	$player0.origin($deck8Turbolift0_origin.getOrigin());
+	
+	//change the menu for the turbolift
+	$deck1Turbolift0.setStringVar("uservar1","coop_ente-turbolift");
+	$deck1Turbolift1.setStringVar("uservar1","coop_ente-turbolift");
+	$deck7Turbolift0.setStringVar("uservar1","coop_ente-turbolift");
+	$deck7Turbolift1.setStringVar("uservar1","coop_ente-turbolift");
+	$deck7Turbolift2.setStringVar("uservar1","coop_ente-turbolift");
+	$deck8Turbolift0.setStringVar("uservar1","coop_ente-turbolift");
+	$deck8Turbolift1.setStringVar("uservar1","coop_ente-turbolift");
+	$deck11Turbolift.setStringVar("uservar1","coop_ente-turbolift");
+	$deck16Turbolift.setStringVar("uservar1","coop_ente-turbolift");
+}
+
+void setupMap()
+//------------------------------------------------------------------------------
+// Handle all that has to do with setup
+//------------------------------------------------------------------------------
+{
+	return;
+	wait(5);
+	while(1)
+	{
+		if($player0.getActiveWeaponName() != "None"){
+			$player0.hudprint("weap:"+$player0.getActiveWeaponName()+"\n");
+		}
+		wait(0.05);
+	}
+}

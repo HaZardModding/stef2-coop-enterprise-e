@@ -1,0 +1,14 @@
+void deck8TransporterConsoleTrigger()
+//------------------------------------------------------------------------------
+//makes the trigger that has been used play a beep sound
+//------------------------------------------------------------------------------
+{
+	entity eTrigger;
+	//retrive trigger which started this thread
+	eTrigger = getCurrentEntity();
+	
+	if(doesEntityExist(eTrigger))
+	{
+		eTrigger.playsound("sound/environment/computer/lcars_beep4.wav",0,2,64);
+	}
+}
